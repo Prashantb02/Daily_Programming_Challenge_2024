@@ -1,0 +1,19 @@
+#include <iostream>
+#include<vector>
+using namespace std;
+int fun(vector<int>&arr){
+    int n=arr.size()+1;
+    int expsum=n*(n+1)/2;
+    int actsum=0;
+    for(int i=0;i<n-1;i++){
+        actsum+=arr[i];
+    }
+    int diff=expsum-actsum;
+    return diff;
+}
+int main(){
+    vector<int> arr={1,2,3,5};
+    int missingno=fun(arr);
+    cout<<"The missing number is:"<<missingno<<endl;
+    return 0;
+}
