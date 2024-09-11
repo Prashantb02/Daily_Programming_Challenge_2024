@@ -1,10 +1,10 @@
 #include <vector>
 #include <iostream>
 using namespace std;
-class Solution {
+class sol {
 public:
-    int findDuplicate(vector<int>& nums) {
-        int duplicate = 0;
+    int findDup(vector<int>& nums) {
+        int dup = 0;
         int n = nums.size() - 1;
         for (int bit = 0; bit < 32; ++bit) {
             int mask = (1 << bit);
@@ -18,16 +18,16 @@ public:
                 }
             }
             if (nums_count > base_count) {
-                duplicate |= mask;
+                dup |= mask;
             }
         }
-        return duplicate;
+        return dup;
     }
 };
 int main() {
     vector<int> arr = {3, 1, 3, 4, 2};
-    Solution solution;
-    int result = solution.findDuplicate(arr);
+    sol solution;
+    int result = sol.findDup(arr);
     << "Duplicate number: " << result << std::endl;
     return 0;
 }
